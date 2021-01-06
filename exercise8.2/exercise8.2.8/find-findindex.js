@@ -12,7 +12,11 @@ findUserByUsername(users, 'taco') // undefined
 */
 
 
-function findUserByUsername(usersArray, username) {}
+function findUserByUsername(usersArray, username) {
+  return usersArray.find(function(val){
+    return val.username === username;
+  })
+}
 
 /*
 Write a function called `removeUser` which accepts an array of objects, each with a key of username, and a string. The function should remove the object from the array. If the object is not found, return undefined. 
@@ -26,5 +30,18 @@ const users = [
 removeUser(users, 'akagen') // {username: 'akagen'}
 removeUser(users, 'akagen') // undefined
 */
+/**
+ * what we should return 
+ * why return [0] value. Is it the removed item?
+ * @param {*} usersArray 
+ * @param {*} username 
+ */
+function removeUser(usersArray, username) {
+ let index =  usersArray.findIndex(function(val){
+      return val.username === username;
+  })
+  if(index === -1) return 
+  
+  return usersArray.splice(index,1)[0];
 
-function removeUser(usersArray, username) {}
+}
