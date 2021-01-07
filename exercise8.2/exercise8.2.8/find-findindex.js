@@ -40,8 +40,9 @@ function removeUser(usersArray, username) {
  let index =  usersArray.findIndex(function(val){
       return val.username === username;
   })
+  console.log(index)
   if(index === -1) return 
-  
+  console.log(usersArray)
   return usersArray.splice(index,1)[0];
 
 }
